@@ -14,6 +14,10 @@ mongoose.connect(mongoURI, () => {
     console.log("The connection with mongoDB is established")
 })
 
+//==========MODELS==========
+const Topic = require("./models/hub.js");
+const seedData = require("./models/seed.js");
+
 //==========MIDDLEWARE==========
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -54,4 +58,13 @@ app.get("/hub/:id", (req, res) => {
 //==========LISTENER==========
 app.listen(PORT, () => {
     console.log(`App listening on PORT: `, PORT);
+})
+
+//==========SEED========== 
+Topic.create(seedData, (err, data) => {
+    if(err) {
+        console.log(err.message);
+    } else {
+        console.log("Seed-data was added successfully to the db");
+    }
 })
