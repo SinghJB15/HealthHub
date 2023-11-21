@@ -18,6 +18,7 @@ mongoose.connect(mongoURI, () => {
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride("_method"));
+app.use(express.static("public"));
 
 //==========ROUTES(I.N.D.U.C.E.S)==========
 
