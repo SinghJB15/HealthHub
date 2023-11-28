@@ -7,10 +7,22 @@ const seedData = require("../models/seed.js");
 
 
 //INDEX
-
+router.get("", (req, res) => {
+    Topic.find({}, (err, data) => {
+        if(err) {
+            console.log(err.message);
+        } else {
+            res.render("index.ejs", {
+                topics: data
+            });
+        }
+    })
+})
 
 //NEW
-
+router.get("", (req, res) => {
+    res.send("new route is working");
+})
 
 //DELETE
 
@@ -18,19 +30,38 @@ const seedData = require("../models/seed.js");
 //UPDATE
 
 
-//EDIT
+//CREATE
 
+
+//EDIT
+router.get("/:id/edit", (req, res) => {
+    Topic.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, data) => {
+        if(err) {
+            console.log(err.message);
+        } else {
+            res.send(data);
+        }
+    })
+})
 
 //SHOW
-
+router.get("/:id", (req, res) => {
+    Topic.findById(req.params.id, (err, data) => {
+        if(err) {
+            console.log(err.message);
+        } else {
+            res.send(data);
+        }
+    })
+})
 
 //==========SEED DATA==========
-Topic.create(seedData, (err, data) => {
-    if(err) {
-        console.log(err.message);
-    } else {
-        console.log(`Data was added to db: `, data);
-    }
-})
+// Topic.create(seedData, (err, data) => {
+//     if(err) {
+//         console.log(err.message);
+//     } else {
+//         console.log(`Data was added to db: `, data);
+//     }
+// })
 
 module.exports = router;
