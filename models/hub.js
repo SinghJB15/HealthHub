@@ -6,6 +6,14 @@ const topicSchema = new mongoose.Schema({
         required: true, 
         unique: true
     },
+    author: {
+        type: String,
+        required: true,
+    },
+    topic: {
+        type: String,
+        required: true
+    },
     imageURL: {
         type: String,
         required: false,
@@ -13,7 +21,15 @@ const topicSchema = new mongoose.Schema({
     body: {
         type: String,
         required: true
+    },
+    createdAt: {
+        type: Date
+    },
+    updatedAt: {
+        type: Date
     }
+}, {
+    timestamps: true
 });
 
 const Topic = mongoose.model("Topic", topicSchema);

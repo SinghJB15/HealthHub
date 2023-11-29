@@ -12,9 +12,7 @@ router.get("", (req, res) => {
         if(err) {
             console.log(err.message);
         } else {
-            res.render("index.ejs", {
-                topics: data
-            });
+            console.log(data);
         }
     })
 })
