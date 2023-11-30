@@ -22,9 +22,9 @@ router.get("", (req, res) => {
 })
 
 //NEW
-router.get("", (req, res) => {
-    res.send("new route is working");
-})
+// router.get("", (req, res) => {
+//     res.send("new route is working");
+// })
 
 //DELETE
 
@@ -36,15 +36,15 @@ router.get("", (req, res) => {
 
 
 //EDIT
-router.get("/:id/edit", (req, res) => {
-    Topic.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, data) => {
-        if(err) {
-            console.log(err.message);
-        } else {
-            res.send(data);
-        }
-    })
-})
+// router.get("/:topic/edit", (req, res) => {
+//     Topic.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, data) => {
+//         if(err) {
+//             console.log(err.message);
+//         } else {
+//             res.send(data);
+//         }
+//     })
+// })
 
 //SHOW
 router.get("/:topic", (req, res) => {
@@ -55,7 +55,9 @@ router.get("/:topic", (req, res) => {
             console.log(err.message);
         } else {
             console.log("found the relevant articles");
-            res.send(data);
+            res.render("article_views/index.ejs", {
+                articles: data
+            });
         }
     })
 
