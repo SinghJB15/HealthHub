@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const Topic = require("../models/hub.js");
+const Topic = require("../models/topics.js");
+const Article = require("../models/articles.js");
 const seedData = require("../models/seed.js");
+const articleSeedData = require("../models/seedArticles.js");
 
 //==========ROUTES(I.N.D.U.C.E.S)==========
 
@@ -12,7 +14,9 @@ router.get("", (req, res) => {
         if(err) {
             console.log(err.message);
         } else {
-            console.log(data);
+            res.render("index.ejs", {
+                topics: data
+            })
         }
     })
 })
@@ -43,22 +47,37 @@ router.get("/:id/edit", (req, res) => {
 })
 
 //SHOW
-router.get("/:id", (req, res) => {
-    Topic.findById(req.params.id, (err, data) => {
+router.get("/:topic", (req, res) => {
+    //Need to decode the topic parameter to original form in order to query the database
+    const topicName = decodeURIComponent(req.params.topic);
+    Article.find({topic: topicName}, (err, data) => {
         if(err) {
             console.log(err.message);
         } else {
+            console.log("found the relevant articles");
             res.send(data);
         }
     })
+
 })
 
 //==========SEED DATA==========
+
+//Topics Seed
 // Topic.create(seedData, (err, data) => {
 //     if(err) {
 //         console.log(err.message);
 //     } else {
-//         console.log(`Data was added to db: `, data);
+//         console.log(`Topic data was added to db: `, data);
+//     }
+// })
+
+// //Articles Seed
+// Article.create(articleSeedData, (err, data) => {
+//     if(err) {
+//         console.log(err.message);
+//     } else {
+//         console.log(`Article data was added to articles db: `, data);
 //     }
 // })
 

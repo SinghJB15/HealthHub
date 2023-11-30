@@ -9,7 +9,7 @@ const healthController = require("./controller/health.js");
 const MONGOURI = process.env.MONGOURI;
 
 //==========DB CONNECTION==========
-mongoose.connect(MONGOURI + "health");
+mongoose.connect(MONGOURI + "health-hub");
 mongoose.connection.once("open", () => {
     console.log("connected to mongo");
 })
