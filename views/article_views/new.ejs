@@ -1,0 +1,11 @@
+ <%- include("../partials/head.ejs") %>
+<body>
+    <%- include("../partials/header.ejs") %>
+    <form action="/health/<%= encodeURIComponent(topic) %>" method="POST">
+        <input type="text" name="title" placeholder="Title of Article"> <br>
+        <input type="text" name="content" placeholder="Add Content"> <br>
+        <input type="text" name="author" placeholder="Author Name"> <br>
+        <input type="text" name="topic" placeholder="<%= topic %>"> <br>
+        <input type="submit" value="SUBMIT">
+    </form>
+</body>

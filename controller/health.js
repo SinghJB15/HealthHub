@@ -33,18 +33,18 @@ router.get("", (req, res) => {
 
 
 //CREATE
-
-
-//EDIT
-// router.get("/:topic/edit", (req, res) => {
-//     Topic.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, data) => {
-//         if(err) {
-//             console.log(err.message);
-//         } else {
-//             res.send(data);
-//         }
-//     })
-// })
+router.post("/:topic", (req, res) => {
+    //Decode uri 
+    const topic = decodeURIComponent(req.params.topic);
+    Article.create(req.body, (err, data) => {
+        if(err) {
+            console.log(err.message);
+        } else {
+            console.log(`Data was added to the articles db: `, data);
+            res.redirect(`/health/${topic}`);
+        }
+    })
+})
 
 //SHOW
 router.get("/:topic", (req, res) => {
@@ -56,7 +56,8 @@ router.get("/:topic", (req, res) => {
         } else {
             console.log("found the relevant articles");
             res.render("article_views/index.ejs", {
-                articles: data
+                articles: data,
+                topic: topicName
             });
         }
     })

@@ -8,24 +8,45 @@ const Article = require("../models/articles.js");
 
 
 //NEW
-// router.get("/new", (req, res) => {
-//     res.render("../views/article_views/new.ejs");
-// })
+router.get("/new/:topic", (req, res) => {
+    //Need to decode the title parameter to orginal form to send the data to the new.ejs page
+    const topicName = decodeURIComponent(req.params.topic)
+    res.render("article_views/new.ejs", {
+        topic: topicName
+    })
+})
 
 //DELETE
 
 
 //UPDATE
+router.put("/:id", (req, res) => {
+    Article.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, data) => {
+        if(err) {
+            console.log(err.message);
+        } else {
+            res.redirect(`/article/${req.params.id}`);
+        }
+    })
+})
 
 
 //EDIT
-
+router.get("/edit/:id", (req, res) => {
+    Article.findById(req.params.id, (err, data) => {
+        if(err) {
+            console.log(err.message);
+        } else {
+            res.render("article_views/edit.ejs", {
+                article: data
+            })
+        }
+    })
+})
 
 //SHOW
-router.get("/:title", (req, res) => {
-    //Need to decode the title parameter to original form in order to query the database
-    const titleName = decodeURIComponent(req.params.title);
-    Article.findOne({title: titleName}, (err, data) => {
+router.get("/:id", (req, res) => {
+    Article.findById(req.params.id, (err, data) => {
         if(err) {
             console.log(err.message);
         } else {

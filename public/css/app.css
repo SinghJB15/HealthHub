@@ -1,33 +1,37 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f4f4f4; /* Light background for a clean look */
     margin: 0;
     padding: 0;
     text-align: center;
 }
 
 nav { 
-    background-color: black;
+    background-color: #04AA6D; /* A shade of blue from the logo */
     color: white;
-    height: 50px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 button {
     height: 40px;
     border-radius: 10%;
+    background-color: #4A90E2; /* Matching the navbar */
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
 .container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Creates as many columns as can fit min 250px */
-    grid-gap: 20px; /* This sets the gap between grid items */
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
     padding: 20px;
-   max-width: 1200px; /* Ensure the container takes full width */
-   margin: 0 auto;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Style for each topic box */
@@ -39,9 +43,9 @@ ul {
 
 li {
     background-color: #ffffff;
-    border: 1px solid #dddddd;
+    border: 1px solid #E1E1E1; /* Lighter border for a subtle look */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Lighter shadow */
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -50,17 +54,22 @@ li {
 
 li:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 a {
     text-decoration: none;
-    color: #333333;
-    font-size: 1.2em; /* Slightly larger text in the boxes */
-    display: block; /* Make the links fill the li for better clickability */
+    color: #333333; /* Dark text for readability */
+    font-size: 1.2em;
+    display: block;
 }
 
 img {
-    height: 150px;
-    width: 150px;
+    height: 175px;
+    width: 175px;
+    margin-bottom: 10px;
+}
+
+.home {
+    color: white;
 }

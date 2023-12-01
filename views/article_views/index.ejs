@@ -1,10 +1,14 @@
 <%- include("../partials/head.ejs") %>
 <body>
-    <%- include("../partials/header.ejs") %>
-    <ul>
+    <header>    
+        <%- include("../partials/header.ejs") %>
+        <a href="/article/new/<%= encodeURIComponent(topic) %>" class="new-button">Add Article</a>
+    </header>
+    <h1><%= topic %></h1>
+    <ul class="container">
         <% for (let i = 0; i < articles.length; i++) { %>
             <li>
-                <a href="/article/<%= encodeURIComponent(articles[i].title) %>">
+                <a href="/article/<%= articles[i].id %>">
                     <%= articles[i].title %>
                 </a>
             </li>
