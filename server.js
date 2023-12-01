@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
 app.use("/health", healthController);
-// app.use("/article", articleController);
+app.use("/article", articleController);
 
 //==========LISTENER==========
 app.listen(PORT, () => {

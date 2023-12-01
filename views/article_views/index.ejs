@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article Index</title>
-</head>
+<%- include("../partials/head.ejs") %>
 <body>
+    <%- include("../partials/header.ejs") %>
     <ul>
         <% for (let i = 0; i < articles.length; i++) { %>
             <li>
@@ -16,4 +11,3 @@
             <% } %>
     </ul>
 </body>
-</html>
