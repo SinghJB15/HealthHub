@@ -1,7 +1,7 @@
 <%- include("../partials/head.ejs") %>
 <body>
     <%- include("../partials/header.ejs") %>
-    <a href="/health/<%= encodeURIComponent(article.topic) %>" class="btn">Go to Health</a>
+    <a href="/article/<%= encodeURIComponent(article.topic) %>" class="btn">Go to Health</a>
     <a href="/article/edit/<%= article.id %>">EDIT</a>
     <h1>
         <%= article.topic %>

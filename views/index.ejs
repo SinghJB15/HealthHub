@@ -6,7 +6,7 @@
             <% for (let i = 0; i < topics.length; i++) { %>
                 <li>
                     <img src="<%= topics[i].img %>" alt="<%= topics[i].name %>">
-                    <a href="/health/<%= encodeURIComponent(topics[i].name)%>">
+                    <a href="/article/<%= encodeURIComponent(topics[i].name)%>">
                         <%= topics[i].name %>
                     </a>
                 </li>
