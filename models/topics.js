@@ -5,6 +5,9 @@ const topicSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true
+    },
+    img: {
+        type: String
     }   
 })
 
