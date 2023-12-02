@@ -21,6 +21,12 @@ const articleSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    coverImage: {
+        type: String
+    },
+    contentImage: {
+        type: String
+    },
     createdAt: {
         type: Date,
         default: Date.now

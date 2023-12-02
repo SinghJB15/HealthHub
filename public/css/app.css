@@ -13,55 +13,81 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 0 75px;
     margin-bottom: 30px;
 }
 
 .nav-list {
     list-style: none;
-    display: flex;
-    justify-content: space-between;
     margin: 0;
     padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .nav-left {
-    margin-left: 20px; /* Pushes "HealthHub" to the left */
-    display: flex;
-    align-items: center;
+    margin-right: auto;
 }
 
-.nav-right {
-    margin-left: 20px; /* Add spacing between links on the right */
-    display: flex;
-    align-items: center;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: white;
+/* This styles the individual list items */
+.nav-left, .nav-right {
     padding: 10px;
-}
+  }
 
-.nav-links a:hover {
-    color: #4A90E2;
-}
+  .nav-right, .nav-right a {
+    font-size: 1em;
+    color: #333; /* Set this to the color you want for your text */
+    text-decoration: none;
+    margin-left: 20px; /* Space out the nav items */
+    /* Add other styles as needed, such as padding or font properties */
+  }
+  
+  .nav-right a:hover, input[type=submit]:hover {
+    opacity: 0.7;
+  }
 
-button {
-    height: 40px;
-    border-radius: 10%;
-    background-color: #4A90E2; /* Matching the navbar */
-    color: white;
+
+
+  .nav-right:first-child {
+    margin-left: 0;
+  }
+
+  /* This targets the log out button to make it look more like a button than a plain input */
+input[type=submit] {
+    padding: 10px 20px;
     border: none;
+    background-color: #f44336; /* Replace with your desired background color */
+    color: white; /* Replace with your desired text color */
+    border-radius: 5px;
     cursor: pointer;
+  }
+
+
+
+.topic-header {
+    text-align: center; /* Center-align the text */
+    margin: 20px auto; /* Add some margin above and below the header */
+    padding: 10px 0; /* Add some padding to give it space */
+    background-color: #f8f8f8; /* A light background color to make it stand out */
+    font-size: 1.2em; /* Make the font a bit larger than the default size */
+    max-width: 1400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
 
 .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
     padding: 20px;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -95,13 +121,221 @@ a {
     display: block;
 }
 
-img {
+.topic-image {
     height: 175px;
     width: 175px;
     margin-bottom: 10px;
 }
 
 .home {
-    color: white;
     font-weight: bold;
+    font-size: 1.5em;
+    color: #333; /* Replace with your desired color */
+    text-decoration: none;
+  }
+
+
+  .article-container {
+    max-width: 1200px;
+    margin: 40px auto; /* This centers the container and adds vertical margin */
+    padding: 20px;
+    background-color: #f8f8f8; /* A light background color for contrast */
+}
+
+.article-navigation {
+    display: flex;
+    justify-content: space-between; /* Spreads out the navigation buttons */
+    margin-bottom: 20px; /* Spacing between buttons and article title */
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #5c95ff; /* Example button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.edit-btn {
+    background-color: #f0ad4e; /* Different color for edit button */
+}
+
+.delete-btn {
+    background-color: #d9534f; /* Different color for delete button */
+}
+
+.article-topic {
+    text-align: center;
+    font-size: 2em;
+}
+
+.article-title {
+    text-align: center;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.content-image img {
+    width: 300px;  /* Fixed width for the image */
+    height: 300px; /* Fixed height for the image */
+    object-fit: cover; /* This will cover the area without stretching the image */
+    display: block; /* This changes the image from inline (default) to block */
+    margin: 0 auto; /* This will center the image in the .content-image div */
+    border-radius: 10px; /* Optional: if you want rounded corners */
+}
+
+.article-content {
+    margin-top: 20px; /* Spacing between title and content */
+}
+
+.article-meta {
+    margin-top: 20px;
+    font-style: italic;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete-form {
+    display: inline; /* Allows the form to sit next to other inline elements */
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for input fields with class 'form-input' */
+.form-input {
+    width: 100%; /* Full width */
+    padding: 10px;
+    margin-bottom: 15px; /* Space between inputs */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Includes padding in width calculation */
+}
+
+/* Style for the submit button with class 'form-submit' */
+.form-submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #5c95ff; /* Example button color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for the submit button */
+.form-submit:hover {
+    background-color: #4a7cd3; /* Darken button color on hover */
+}
+
+/* Style for form placeholders */
+.form-input::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+/* Focus style for input fields */
+.form-input:focus {
+    border-color: #5c95ff;
+    outline: none; /* Removes the default focus outline */
+}
+
+
+
+
+
+
+
+
+/* Style for the topic-header that contains the encouraging message */
+.topic-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.topic-header h2 {
+    margin-bottom: 0.5em;
+}
+
+.topic-header p {
+    margin: 0 auto 1em;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+
+.new-button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 20px 0;
+    background-color: #007bff; /* Green color for the 'add' action */
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.new-button:hover {
+    background-color: #0069d9; /* A slightly darker green for the hover state */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-decoration: none; /* Ensures that the text decoration doesn't change on hover */
+}
+
+.form-signin {
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for each fieldset */
+.form-signin fieldset {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: none;
+}
+
+/* Style for labels */
+.form-signin label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Style for input fields */
+.form-signin input[type=text], .form-signin input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Style for the submit button */
+.form-signin input[type=submit] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Blue color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Hover effect for the submit button */
+.form-signin input[type=submit]:hover {
+    background-color: #0069d9; /* Darker blue */
 }

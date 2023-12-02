@@ -1,11 +1,18 @@
 <%- include("../partials/head.ejs") %>
 <body>
     <%- include("../partials/header.ejs") %>
-    <form action="/article/<%= article.id %>?_method=PUT" method="POST">
-        <input type="text" name="title" placeholder="<%= article.title %>"> <br>
-        <input type="text" name="content" placeholder="<%= article.content %>"> <br>
-        <input type="text" name="authorName" placeholder="<%= article.authorName %>"> <br>
-        <input type="text" name="topic" placeholder="<%= article.topic %>"> <br>
-        <input type="submit" value="SUBMIT">
-    </form>
+    <div class="topic-header">
+        <h2><%= article.topic %></h2> 
+    </div>
+    <div class="form-container">
+        <form action="/article/<%= article.id %>?_method=PUT" method="POST">
+            <input type="text" name="title" placeholder="<%= article.title %>" class="form-input"> <br>
+            <input type="text" name="content" placeholder="<%= article.content %>" class="form-input"> <br>
+            <input type="text" name="authorName" placeholder="<%= article.authorName %>" class="form-input"> <br>
+            <input type="text" name="topic" placeholder="<%= article.topic %>" class="form-input"> <br>
+            <input type="url" name="coverImage" placeholder="Image Url" class="form-input"> <br>
+            <input type="url" name="contentImage" placeholder="Image Url" class="form-input"> <br>
+            <input type="submit" value="SUBMIT">
+        </form>
+    </div>
 </body>

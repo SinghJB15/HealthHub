@@ -1,11 +1,18 @@
  <%- include("../partials/head.ejs") %>
 <body>
     <%- include("../partials/header.ejs") %>
-    <form action="/article/<%= encodeURIComponent(topic) %>" method="POST">
-        <input type="text" name="title" placeholder="Title of Article"> <br>
-        <input type="text" name="content" placeholder="Add Content"> <br>
-        <input type="text" name="authorName" placeholder="Author Name"> <br>
-        <input type="text" name="topic" placeholder="<%= topic %>"> <br>
-        <input type="submit" value="SUBMIT">
-    </form>
+    <div class="topic-header">
+        <h2><%= topic %></h2> 
+    </div>
+    <div class="form-container">
+        <form action="/article/<%= encodeURIComponent(topic) %>" method="POST">
+            <input type="text" name="title" placeholder="Title of Article" class="form-input"> <br>
+            <input type="text" name="content" placeholder="Add Content" class="form-input"> <br>
+            <input type="text" name="authorName" placeholder="Author Name" class="form-input"> <br>
+            <input type="text" name="topic" placeholder="<%= topic %>" class="form-input"> <br>
+            <input type="url" name="coverImage" placeholder="Image Url" class="form-input"> <br>
+            <input type="url" name="contentImage" placeholder="Image Url" class="form-input"> <br>
+            <input type="submit" value="SUBMIT"> 
+        </form>
+    </div>
 </body>

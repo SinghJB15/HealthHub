@@ -1,11 +1,15 @@
 <%- include("partials/head.ejs") %>
 <body>
     <%- include("partials/header.ejs") %>
+
+    <div class="topic-header">
+        <p>Discover a wealth of knowledge on health and wellness! Dive into a variety of topics below and uncover insights and articles tailored to your interests.</p>
+    </div>
     <div class="topic-list">
         <ul class="container">
             <% for (let i = 0; i < topics.length; i++) { %>
                 <li class="topic-name">
-                    <img src="<%= topics[i].img %>" alt="<%= topics[i].name %>">
+                    <img src="<%= topics[i].img %>" alt="<%= topics[i].name %>" class="topic-image">
                     <a href="/article/<%= encodeURIComponent(topics[i].name)%>">
                         <%= topics[i].name %>
                     </a>

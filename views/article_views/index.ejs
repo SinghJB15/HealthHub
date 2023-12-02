@@ -2,14 +2,15 @@
 <body>
     <header>    
         <%- include("../partials/header.ejs") %>
-        <% if(currentUser) { %>
-        <a href="/article/new/<%= encodeURIComponent(topic) %>" class="new-button">Add Article</a>
-        <% } %>
     </header>
     <h1><%= topic %></h1>
+    <% if(currentUser) { %>
+        <a href="/article/new/<%= encodeURIComponent(topic) %>" class="new-button">Add Article</a>
+        <% } %>
     <ul class="container">
         <% for (let i = 0; i < articles.length; i++) { %>
             <li class="topic-name">
+                <img src="<%= articles[i].coverImage %>" alt="cover-image" class="topic-image">
                 <a href="/article/show/<%= articles[i].id %>">
                     <%= articles[i].title %>
                 </a>
