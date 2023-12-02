@@ -4,6 +4,9 @@
     <a href="/article/<%= encodeURIComponent(article.topic) %>" class="btn">Go to Health</a>
     <% if(currentUser) { %>
     <a href="/article/edit/<%= article.id %>">EDIT</a>
+    <form action="/article/<%= article.id %>?_method=DELETE" method="POST">
+        <input type="submit" value="DELETE">
+    </form>
     <% } %>
     <h1>
         <%= article.topic %>
@@ -18,7 +21,7 @@
     </p>
 
     <p>
-        Created By: <%= article.author  %>
+        Created By: <%= article.authorName  %>
     </p>
 
     <p>
