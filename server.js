@@ -11,6 +11,7 @@ const healthController = require("./controller/health.js");
 const articleController = require("./controller/articles.js");
 const userController = require("./controller/users.js");
 const sessionsController = require("./controller/sessions.js");
+const myArticleController = require("./controller/myArticles.js");
 // const sessionsController = require("./controller/sessions.js");
 
 //==========ENV==========
@@ -38,6 +39,7 @@ app.use("/health", healthController);
 app.use("/users", userController);
 app.use("/article", articleController);
 app.use("/sessions", sessionsController);
+app.use("/myarticles", myArticleController);
 
 
 //==========LISTENER==========

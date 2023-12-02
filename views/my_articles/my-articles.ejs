@@ -2,11 +2,8 @@
 <body>
     <header>    
         <%- include("../partials/header.ejs") %>
-        <% if(currentUser) { %>
-        <a href="/article/new/<%= encodeURIComponent(topic) %>" class="new-button">Add Article</a>
-        <% } %>
     </header>
-    <h1><%= topic %></h1>
+    <h2>My Articles</h2>
     <ul class="container">
         <% for (let i = 0; i < articles.length; i++) { %>
             <li class="topic-name">
