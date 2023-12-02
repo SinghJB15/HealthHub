@@ -35,12 +35,19 @@ app.use(session({
     saveUninitialized: false
 }));
 
+//==========CONTROLLER MIDDLEWARE==========
 app.use("/health", healthController);
 app.use("/users", userController);
 app.use("/article", articleController);
 app.use("/sessions", sessionsController);
 app.use("/myarticles", myArticleController);
 
+//==========HOME ROUTE=========
+app.get("/", (req, res) => {
+    res.render("home.ejs", {
+        currentUser: req.session.currentUser
+    })
+})
 
 //==========LISTENER==========
 app.listen(PORT, () => {
