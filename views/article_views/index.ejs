@@ -2,7 +2,9 @@
 <body>
     <header>    
         <%- include("../partials/header.ejs") %>
+        <% if(currentUser) { %>
         <a href="/article/new/<%= encodeURIComponent(topic) %>" class="new-button">Add Article</a>
+        <% } %>
     </header>
     <h1><%= topic %></h1>
     <ul class="container">

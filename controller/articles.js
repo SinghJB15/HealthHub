@@ -4,6 +4,11 @@ const Article = require("../models/articles.js");
 
 //==========ROUTES(I.N.D.U.C.E.S)==========
 
+const isAuthenticated = (req, res, next) => {
+    if(req.session.currentUser) {
+        return next();
+    };
+}
 //INDEX
 router.get("/:topic", (req, res) => {
     //Need to decode the topic parameter to original form in order to query the database
@@ -15,7 +20,8 @@ router.get("/:topic", (req, res) => {
             console.log("found the relevant articles");
             res.render("article_views/index.ejs", {
                 articles: data,
-                topic: topicName
+                topic: topicName,
+                currentUser: req.session.currentUser
             });
         }
     })
@@ -23,11 +29,12 @@ router.get("/:topic", (req, res) => {
 })
 
 //NEW
-router.get("/new/:topic", (req, res) => {
+router.get("/new/:topic", isAuthenticated, (req, res) => {
     //Need to decode the title parameter to orginal form to send the data to the new.ejs page
     const topicName = decodeURIComponent(req.params.topic)
     res.render("article_views/new.ejs", {
-        topic: topicName
+        topic: topicName,
+        currentUser: req.session.currentUser
     })
 })
 
@@ -35,7 +42,7 @@ router.get("/new/:topic", (req, res) => {
 
 
 //UPDATE
-router.put("/:id", (req, res) => {
+router.put("/:id", isAuthenticated, (req, res) => {
     Article.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, data) => {
         if(err) {
             console.log(err.message);
@@ -47,7 +54,7 @@ router.put("/:id", (req, res) => {
 
 
 //CREATE
-router.post("/:topic", (req, res) => {
+router.post("/:topic", isAuthenticated, (req, res) => {
     //Decode uri 
     const topic = decodeURIComponent(req.params.topic);
     Article.create(req.body, (err, data) => {
@@ -61,13 +68,14 @@ router.post("/:topic", (req, res) => {
 })
 
 //EDIT
-router.get("/edit/:id", (req, res) => {
+router.get("/edit/:id", isAuthenticated, (req, res) => {
     Article.findById(req.params.id, (err, data) => {
         if(err) {
             console.log(err.message);
         } else {
             res.render("article_views/edit.ejs", {
-                article: data
+                article: data,
+                currentUser: req.session.currentUser
             })
         }
     })
@@ -81,7 +89,8 @@ router.get("/show/:id", (req, res) => {
         } else {
             console.log(data);
             res.render("article_views/show.ejs", {
-                article: data
+                article: data,
+                currentUser: req.session.currentUser
             });
         }
     })

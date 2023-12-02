@@ -10,6 +10,7 @@ const session = require("express-session");
 const healthController = require("./controller/health.js");
 const articleController = require("./controller/articles.js");
 const userController = require("./controller/users.js");
+const sessionsController = require("./controller/sessions.js");
 // const sessionsController = require("./controller/sessions.js");
 
 //==========ENV==========
@@ -27,15 +28,17 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride("_method"));
 app.use(express.static("public"));
+app.use(session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
+
 app.use("/health", healthController);
-app.use("/article", articleController);
 app.use("/users", userController);
-// app,use("/sessions", sessionsController);
-// app.use(session({
-//     secret: process.env.SECRET,
-//     resave: false,
-//     saveUninitialized: false
-// }))
+app.use("/article", articleController);
+app.use("/sessions", sessionsController);
+
 
 //==========LISTENER==========
 app.listen(PORT, () => {

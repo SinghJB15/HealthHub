@@ -1,8 +1,8 @@
 <%- include("../partials/head.ejs") %>
 <body>
     <%- include("../partials/header.ejs") %>
-    <h2>Create Account</h2>
-    <form action="/users" method="POST">
+    <h2>Sign In</h2>
+    <form action="/sessions" method="POST">
         <fieldset>
             <label for="username">Username:</label>
             <input type="text" name="username">
@@ -11,6 +11,6 @@
             <label for="password">Password:</label>
             <input type="password" name="password">
         </fieldset>
-        <input type="submit" value="Register">
+        <input type="submit" value="Sign In">
     </form>
 </body>

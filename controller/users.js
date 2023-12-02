@@ -5,7 +5,9 @@ const User = require("../models/users.js");
 
 //User Registration Page
 users.get("/new", (req, res) => {
-    res.render("users/new.ejs");
+    res.render("users/new.ejs", {
+        currentUser: req.session.currentUser
+    });
 })
 
 users.post("", (req, res) => {
@@ -16,7 +18,7 @@ users.post("", (req, res) => {
             console.log(err.message);
         } else {
             console.log(`New user is created :`, createdUser);
-            res.redirect("/health")
+            res.redirect("/health");
         }
     })
 })

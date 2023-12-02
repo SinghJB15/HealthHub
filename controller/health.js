@@ -14,8 +14,10 @@ router.get("", (req, res) => {
         if(err) {
             console.log(err.message);
         } else {
+            console.log("route is being hit");
             res.render("index.ejs", {
-                topics: data
+                topics: data,
+                currentUser: req.session.currentUser
             })
         }
     })

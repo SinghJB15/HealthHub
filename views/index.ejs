@@ -4,7 +4,7 @@
     <div class="topic-list">
         <ul class="container">
             <% for (let i = 0; i < topics.length; i++) { %>
-                <li>
+                <li class="topic-name">
                     <img src="<%= topics[i].img %>" alt="<%= topics[i].name %>">
                     <a href="/article/<%= encodeURIComponent(topics[i].name)%>">
                         <%= topics[i].name %>

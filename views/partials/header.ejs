@@ -1,8 +1,26 @@
 <%- include("head.ejs") %>
     <header>
         <nav class="nav">
-                <a class="home" href="/health">HealthHub</a>
-                <a href="">Login</a> 
-                <a href="">Sign Up</a> 
+            <ul class="nav-list">
+                <li class="nav-left">
+                    <a class="home" href="/health">HealthHub</a>
+                </li>
+                <% if(currentUser) { %>
+                    <li class="nav-right"><%= currentUser.username %></li>
+                    <li class="nav-right">
+                        <form action="/sessions?_method=DELETE" method="POST">
+                            <input type="submit" value="Log Out">
+                        </form>
+                    </li>
+                <% } else { %>
+                    <li class="nav-right">
+                        <a href="/sessions/new">Log In</a>
+                    </li>
+                    <li class="nav-right"> 
+                        <a href="/users/new">Register</a>
+                    </li>      
+                <% } %>
+            </ul>
         </nav>
+        
     </header>

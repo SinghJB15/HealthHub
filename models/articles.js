@@ -11,7 +11,8 @@ const articleSchema = new mongoose.Schema({
         required: true
     },
     author: {
-        type: String
+        type: mongoose.Schema.Types.ObjectId, //Reference to the user schema
+        ref: 'User' //name of the user model
     },
     topic: {
         type: String,

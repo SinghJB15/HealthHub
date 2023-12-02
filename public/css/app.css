@@ -6,15 +6,45 @@ body {
     text-align: center;
 }
 
-nav { 
+.nav { 
     background-color: #04AA6D; /* A shade of blue from the logo */
     color: white;
     height: 60px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 20px;
     margin-bottom: 30px;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-left {
+    margin-left: 20px; /* Pushes "HealthHub" to the left */
+    display: flex;
+    align-items: center;
+}
+
+.nav-right {
+    margin-left: 20px; /* Add spacing between links on the right */
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+
+.nav-links a:hover {
+    color: #4A90E2;
 }
 
 button {
@@ -42,7 +72,7 @@ ul {
     margin: 0;
 }
 
-li {
+.topic-name {
     background-color: #ffffff;
     border: 1px solid #E1E1E1; /* Lighter border for a subtle look */
     border-radius: 8px;
@@ -53,7 +83,7 @@ li {
     height: 200px;
 }
 
-li:hover {
+.topic-name:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
@@ -73,5 +103,5 @@ img {
 
 .home {
     color: white;
-    float: left;
+    font-weight: bold;
 }
