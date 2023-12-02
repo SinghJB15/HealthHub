@@ -12,7 +12,7 @@ const articleController = require("./controller/articles.js");
 const userController = require("./controller/users.js");
 const sessionsController = require("./controller/sessions.js");
 const myArticleController = require("./controller/myArticles.js");
-// const sessionsController = require("./controller/sessions.js");
+
 
 //==========ENV==========
 const MONGOURI = process.env.MONGOURI;
