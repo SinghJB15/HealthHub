@@ -97,6 +97,8 @@ router.post("/:topic", isAuthenticated, (req, res) => {
         content: req.body.content,
         author: userId,
         authorName: req.body.authorName,
+        coverImage: req.body.coverImage,
+        contentImage: req.body.contentImage,
         topic: req.body.topic
     };
 
