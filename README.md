@@ -1,5 +1,4 @@
 # HealthHub
-# Checkers
 
 #### This is my first Full Stack Web Application!
 
