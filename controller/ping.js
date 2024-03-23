@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 //Ping to allow server to awake
-router.get("/ping", (req, res) => {
+router.get("", (req, res) => {
     res.status(200).send("ok");
 })
 
