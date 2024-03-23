@@ -1,7 +1,10 @@
 const express = require("express");
+const router = express.Router();
 
 
 //Ping to allow server to awake
-exports.ping = (req, res) => {
-    res.status(200).send("Server is awake");
-}
+router.get("/ping", (req, res) => {
+    res.status(200).send("ok");
+})
+
+module.exports = router;
